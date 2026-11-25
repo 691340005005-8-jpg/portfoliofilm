@@ -1,67 +1,860 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pornlaphat</title>
-    <link rel="stylesheet" href="style.css">
 
-    <!-- Latest compiled and minified CSS -->
+    <title>Pornlaphat | Personal Portfolio</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: #080d1a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background: rgba(8,13,26,0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4da3ff !important;
+        }
+
+        .nav-link {
+            color: #cbd5e1 !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #4da3ff !important;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at 80% 30%, #123d75 0%, transparent 35%),
+                radial-gradient(circle at 10% 80%, #111c42 0%, transparent 35%),
+                #080d1a;
+
+            padding: 100px 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #4da3ff, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            color: #a8b3c7;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .btn-custom {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-4px);
+            color: white;
+            box-shadow: 0 10px 30px rgba(59,130,246,0.4);
+        }
+
+        .btn-outline-custom {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid #4da3ff;
+            border-radius: 50px;
+            color: #4da3ff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-outline-custom:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* PROFILE CARD */
+
+        .profile-card {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1 / 1;
+            margin: auto;
+            overflow: hidden;
+
+            border-radius: 35px;
+            border: 3px solid #398cff;
+
+            background: linear-gradient(
+                135deg,
+                #dceeff,
+                #8fc9ff,
+                #eaf5ff
+            );
+
+            box-shadow: 0 0 40px rgba(57,140,255,0.3);
+
+            transition: 0.4s;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 65px rgba(57,140,255,0.5);
+        }
+
+        .profile-content {
+            position: absolute;
+            left: 6%;
+            top: 27%;
+            z-index: 2;
+            text-align: left;
+            color: #073568;
+        }
+
+        .profile-content .subtitle {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #2674c9;
+        }
+
+        .profile-content h2 {
+            font-size: clamp(22px, 3vw, 38px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .profile-content h2 span {
+            font-size: 0.8em;
+            font-weight: 400;
+        }
+
+        .profile-content p {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #164c83;
+        }
+
+        .profile-content small {
+            color: #315b83;
+            font-style: italic;
+        }
+
+        .profile-person {
+            position: absolute;
+            right: -8%;
+            bottom: 0;
+            width: 75%;
+            height: 95%;
+            object-fit: cover;
+            object-position: center top;
+            z-index: 1;
+
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                black 85%,
+                transparent 100%
+            );
+
+            mask-image: linear-gradient(
+                to bottom,
+                black 85%,
+                transparent 100%
+            );
+        }
+
+        /* SECTION */
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: #4da3ff;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        .section-description {
+            color: #94a3b8;
+            margin-bottom: 50px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #0c1324;
+        }
+
+        .about-card {
+            background: linear-gradient(145deg, #151f35, #10182a);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+            border-color: #398cff;
+        }
+
+        .about-card i {
+            font-size: 35px;
+            color: #4da3ff;
+            margin-bottom: 20px;
+        }
+
+        .about-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #a8b3c7;
+            line-height: 1.9;
+        }
+
+        /* SKILLS */
+
+        .skill-card {
+            background: #121d32;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            padding: 30px 15px;
+            text-align: center;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #4da3ff;
+        }
+
+        .skill-card i {
+            font-size: 40px;
+            color: #4da3ff;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h4 {
+            font-size: 18px;
+        }
+
+        .skill-card p {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 0;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #0c1324;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            background: linear-gradient(145deg, #151f35, #10182a);
+
+            padding: 25px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            border-color: #398cff;
+        }
+
+        .contact-icon {
+            min-width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(59,130,246,0.15);
+            color: #4da3ff;
+
+            border-radius: 15px;
+            font-size: 24px;
+        }
+
+        .contact-info h4 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .contact-info a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-info a:hover {
+            color: #4da3ff;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #080d1a;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 30px 0;
+            color: #94a3b8;
+        }
+
+        footer span {
+            color: #4da3ff;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+
+            .hero {
+                text-align: center;
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .profile-card {
+                max-width: 380px;
+                margin-top: 45px;
+            }
+
+            .profile-content {
+                left: 5%;
+            }
+
+            .profile-content h2 {
+                font-size: 27px;
+            }
+
+            .profile-person {
+                width: 78%;
+                right: -12%;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">PT</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">content</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="button">Search</button>
-      </form>
-    </div>
-    </div>
-    </nav>
-    
-        <img src="image/Pornlaphat.png" width="100%">
-    <br><br>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <img src="image/Pornlaphat.png" width="100%" class="rounded" alt="">
-            </div>
-            <div class="col-sm-6">
-                <h1>Welcome to Our Website</h1>
-                <p>
-                    Hi! MyName is Pornlaphat Chitchong
-                </p>
-            </div>
+
+        <a class="navbar-brand" href="#home">PT.</a>
+
+        <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Me</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">My Skills</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
         </div>
 
     </div>
 
-    <br>
-    <div class="container-fluid">
-        <footer class="py-3 my-4 border-top text-center text-body-secondary bg-primary">
-            <p>&copy; 2026 PornlaphatWeb. All rights reserved. </p>
-        </footer>
+</nav>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <small class="gradient-text">
+                    WELCOME TO MY WEBSITE
+                </small>
+
+                <h1 class="display-3 fw-bold mt-3">
+
+                    Hi, I'm
+
+                    <br>
+
+                    <span class="gradient-text">
+                        Pornlaphat
+                    </span>
+
+                </h1>
+
+                <p class="hero-description mt-3">
+
+                    ยินดีต้อนรับเข้าสู่เว็บไซต์ส่วนตัวของฉัน
+
+                    <br>
+
+                    พื้นที่สำหรับแนะนำตัว นำเสนอทักษะ
+                    และแบ่งปันเรื่องราวของฉัน
+
+                </p>
+
+                <div class="mt-4">
+
+                    <a href="#about" class="btn-custom me-2">
+                        Explore More
+                    </a>
+
+                    <a href="#contact" class="btn-outline-custom">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE CARD -->
+
+            <div class="col-lg-5">
+
+                <div class="profile-card">
+
+                    
+                    <img
+                        src="image/Profile.png"
+                        class="profile-person"
+                        alt="Pornlaphat Profile">
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
+
+</section>
+
+
+<!-- ABOUT ME -->
+
+<section class="about section-padding" id="about">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <span class="section-subtitle">
+                GET TO KNOW ME
+            </span>
+
+            <h2 class="section-title mt-2">
+                About Me
+            </h2>
+
+            <p class="section-description">
+                มาทำความรู้จักกับฉันให้มากขึ้น
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <h3>Who Am I?</h3>
+
+                    <p>
+                        สวัสดี! ฉันชื่อ พรลภัส จิตจง
+
+                        กำลังศึกษาอยู่ที่มหาวิทยาลัยกาฬสินธุ์ คณะบริหารศาสตร์ สาขาคอมพิวเตอร์ธุรกิจ
+                        ปี 3 
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                    <h3>My Website</h3>
+
+                    <p>
+                        เว็บไซต์นี้พัฒนาด้วย HTML, CSS
+                        และ Bootstrap 5
+
+                        โดยเน้นดีไซน์ที่ทันสมัย
+                        สวยงาม และรองรับทุกอุปกรณ์
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section class="section-padding" id="skills">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <span class="section-subtitle">
+                WHAT I CAN DO
+            </span>
+
+            <h2 class="section-title mt-2">
+                My Skills
+            </h2>
+
+            <p class="section-description">
+                ทักษะและความสามารถของฉัน
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-6 col-md-3">
+
+                <div class="skill-card">
+
+                    <i class="fa-brands fa-html5"></i>
+
+                    <h4>HTML</h4>
+
+                    <p>Web Structure</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="skill-card">
+
+                    <i class="fa-brands fa-css3-alt"></i>
+
+                    <h4>CSS</h4>
+
+                    <p>Web Design</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="skill-card">
+
+                    <i class="fa-brands fa-bootstrap"></i>
+
+                    <h4>Bootstrap</h4>
+
+                    <p>Responsive Design</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="skill-card">
+
+                    <i class="fa-brands fa-js"></i>
+
+                    <h4>JavaScript</h4>
+
+                    <p>Web Interaction</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact section-padding" id="contact">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <span class="section-subtitle">
+                GET IN TOUCH
+            </span>
+
+            <h2 class="section-title mt-2">
+                Contact Me
+            </h2>
+
+            <p class="section-description">
+                สามารถติดตามหรือพูดคุยกับฉันได้ผ่านช่องทางต่าง ๆ
+            </p>
+
+        </div>
+
+            <!-- FACEBOOK -->
+            
+            <div class="col-md-10">
+                
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+
+                    <div class="contact-info">
+
+                        <h4>Facebook</h4>
+
+                        <a href="https://www.facebook.com/pornlaphat.chitjong"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            Pornlaphat Chitjong
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="col-md-10">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+
+                    <div class="contact-info">
+
+                        <h4>Instagram</h4>
+
+                        <a href="https://www.instagram.com/__laphatf/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            @_laphatf
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            
+
+                    
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- THANK YOU -->
+
+<section class="py-5">
+
+    <div class="container text-center py-5">
+
+        <span class="section-subtitle">
+            THANK YOU FOR VISITING
+        </span>
+
+        <h2 class="section-title mt-3">
+
+            Keep Learning.
+            <span class="gradient-text">
+                Keep Growing.
+            </span>
+
+        </h2>
+
+        <p class="text-secondary">
+            ขอบคุณที่เข้ามาเยี่ยมชมเว็บไซต์ของฉัน
+        </p>
+
+        <a href="#home" class="btn-custom mt-3">
+            Back to Top ↑
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container text-center">
+
+        <p class="mb-2">
+            © 2026 <span>PornlaphatWeb.</span>
+            All Rights Reserved.
+        </p>
+
+        <small>
+            Designed with ❤️ by Pornlaphat
+        </small>
+
+    </div>
+
+</footer>
+
+
+<!-- BOOTSTRAP JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

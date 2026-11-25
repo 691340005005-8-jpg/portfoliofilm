@@ -1,33 +1,127 @@
-      /* แบบ tag */
-        body {
-            background-color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: auto;
-        }
-        /* แบบ class */
-        .botomUP {
-            background: linear-gradient(to right, rgb(115, 240, 52));
-            background: linear-gradient(to left, rgb(98, 237, 167));
-            color: white;
-            font-size: 20px;
-            padding: 10px;
-            font-weight: bold;
-            border: none;
-            border-radius: 20px;
-        }
-        .botomUP:hover{
-            background: linear-gradient(to right, rgb(25, 49, 13));
-        }
-        #topDown {
-            background: linear-gradient(to right, rgb(115, 240, 52));
-            background: linear-gradient(to left, rgb(98, 237, 167));
-            color: white;
-            font-size: 20px;
-            padding: 10px;
-            font-weight: bold;
-            border: none;
-            border-radius: 20px;
-        }
-        #topDown:hover {
-            background: linear-gradient(to right, rgb(25, 49, 13));
-        }
+/* Profile Card */
+
+.profile-card {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+    overflow: hidden;
+
+    border-radius: 35px;
+    border: 3px solid #398cff;
+
+    background:
+        linear-gradient(135deg, #dceeff, #8fc9ff, #eaf5ff);
+
+    box-shadow:
+        0 0 25px rgba(57,140,255,0.35),
+        0 0 70px rgba(57,140,255,0.15);
+
+    display: flex;
+    align-items: center;
+
+    transition: 0.4s;
+}
+
+.profile-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 0 40px rgba(57,140,255,0.5),
+        0 0 90px rgba(57,140,255,0.2);
+}
+
+/* Text */
+
+.profile-content {
+    position: absolute;
+    left: 6%;
+    top: 27%;
+    z-index: 2;
+    text-align: left;
+    color: #073568;
+}
+
+.profile-content span {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #2674c9;
+}
+
+.profile-content h2 {
+    font-size: clamp(22px, 3vw, 38px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.profile-content h2 span {
+    font-size: 0.8em;
+    font-weight: 400;
+}
+
+.profile-content p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #164c83;
+    margin-top: 20px;
+}
+
+.profile-content small {
+    display: block;
+    color: #315b83;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+/* Profile Person */
+
+.profile-person {
+    position: absolute;
+    right: -8%;
+    bottom: 0;
+
+    width: 75%;
+    height: 95%;
+
+    object-fit: cover;
+    object-position: center top;
+
+    z-index: 1;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 85%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        black 85%,
+        transparent 100%
+    );
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .profile-card {
+        max-width: 380px;
+        margin-top: 40px;
+    }
+
+    .profile-content h2 {
+        font-size: 27px;
+    }
+
+    .profile-content {
+        left: 5%;
+    }
+
+    .profile-person {
+        width: 78%;
+        right: -12%;
+    }
+}
